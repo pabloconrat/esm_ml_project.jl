@@ -1,0 +1,13 @@
+name = "esm_ml_project"
+uuid = "28184263-9001-4587-9f1d-8de57e205f25"
+authors = ["Pablo Conrat <pablo.conrat@tum.de>"]
+version = "1.0.0-DEV"
+
+[compat]
+julia = "1.11"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
