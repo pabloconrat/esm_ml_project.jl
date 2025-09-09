@@ -91,12 +91,15 @@ function prepare_data_batches(t::AbstractVector, X::AbstractMatrix; train_frac=0
         N = size(X, 1)  # number of columns = time points
         batches = []
 
-        for start in 1:batchsize:N
-            stop = min(start + batchsize - 1, N)
-            t_batch = t[start:stop]
-            X_batch = X[start:stop,:]
-            push!(batches, (t_batch, X_batch))
+    for start in 1:2:N
+        stop = start + batchsize - 1
+        if stop > N
+            break  # exit loop if the batch would go past N
         end
+        t_batch = t[start:stop]
+        X_batch = X[start:stop, :]
+        push!(batches, (t_batch, X_batch))
+    end
 
         return batches
     end
